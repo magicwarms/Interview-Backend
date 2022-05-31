@@ -114,4 +114,13 @@ You have **24 hours** to complete all questions.
 
 ## How to run!
 
-just run `go mod download`
+run
+
+1. go mod download
+2. type `air` on your CLI
+
+## Access this endpoint
+
+1. http://localhost:9000/question/one -> for question one
+2. http://localhost:9000/question/two -> for question two
+3. http://localhost:9000/question/three -> for question three
