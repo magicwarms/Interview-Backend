@@ -12,7 +12,7 @@ You can use any 3rd party library that is provided on **public** NuGet repositor
 You need to connect with our screening API on this URL:
 
 Base URL : https://screening.moduit.id/  
-Swagger  : https://screening.moduit.id/swagger  
+Swagger : https://screening.moduit.id/swagger
 
 Note: _There's no authentication mechanism that you need to implement._
 
@@ -37,6 +37,7 @@ Output Example:
 
 Please create a controller that sends request to this endpoint: **/backend/question/two** \
 then please apply the following filter to the response:
+
 1. Description that contains "Ergonomics" or Title that contains "Ergonomics"
 2. Tags that contains "Sports"
 3. Order by Id descending
@@ -77,6 +78,7 @@ Input Example:
 ```
 
 Output Example:
+
 ```Json
 [
   {
@@ -110,3 +112,6 @@ You have **24 hours** to complete all questions.
 
 **Good Luck!**
 
+## How to run!
+
+just run `go mod download`
