@@ -1,4 +1,17 @@
-# Moduit Backend - Coding Test
+# Moduit Backend - Coding Test - Andhana Utama
+
+## How to run!
+
+run
+
+1. go mod download
+2. type `air` on your CLI
+
+## Access this endpoint
+
+1. `http://localhost:9000/question/one` -> for question one
+2. `http://localhost:9000/question/two` -> for question two
+3. `http://localhost:9000/question/three` -> for question three
 
 ## Instructions
 
@@ -111,16 +124,3 @@ Output Example:
 You have **24 hours** to complete all questions.
 
 **Good Luck!**
-
-## How to run!
-
-run
-
-1. go mod download
-2. type `air` on your CLI
-
-## Access this endpoint
-
-1. http://localhost:9000/question/one -> for question one
-2. http://localhost:9000/question/two -> for question two
-3. http://localhost:9000/question/three -> for question three
