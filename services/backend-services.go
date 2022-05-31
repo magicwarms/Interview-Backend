@@ -39,13 +39,13 @@ func QuestionOne() (*entity.BodyResponse, error) {
 	}, nil
 }
 
-func QuestionTwo() (*[]entity.BodyResponse, error) {
+func QuestionTwo() ([]*entity.BodyResponse, error) {
 	// set the URL
 	theURL := URL + "backend/question/two"
 	getData, errRequest := config.RequestURL(theURL)
 	if errRequest != nil {
 		fmt.Println(errRequest.Error())
-		return &[]entity.BodyResponse{}, errRequest
+		return []*entity.BodyResponse{}, errRequest
 	}
 	jsonData := []byte(getData)
 	// define the data
@@ -54,7 +54,7 @@ func QuestionTwo() (*[]entity.BodyResponse, error) {
 	var errUnMarshal = json.Unmarshal(jsonData, &data)
 	if errUnMarshal != nil {
 		fmt.Println(errUnMarshal.Error())
-		return &[]entity.BodyResponse{}, errUnMarshal
+		return []*entity.BodyResponse{}, errUnMarshal
 	}
 	// filter the data
 	var result []entity.BodyResponse
@@ -70,20 +70,20 @@ func QuestionTwo() (*[]entity.BodyResponse, error) {
 		return result[i].ID > result[j].ID
 	})
 	// get only 3 data
-	result2 := make([]entity.BodyResponse, 3)
+	result2 := make([]*entity.BodyResponse, 3)
 	for i := 0; i < 3; i++ {
-		result2[i] = result[i]
+		result2[i] = &result[i]
 	}
-	return &result2, nil
+	return result2, nil
 }
 
-func QuestionThree() (*[]entity.BodyResponseForQuestionThree, error) {
+func QuestionThree() ([]*entity.BodyResponseForQuestionThree, error) {
 	// set the URL
 	theURL := URL + "backend/question/three"
 	getData, errRequest := config.RequestURL(theURL)
 	if errRequest != nil {
 		fmt.Println(errRequest.Error())
-		return &[]entity.BodyResponseForQuestionThree{}, errRequest
+		return []*entity.BodyResponseForQuestionThree{}, errRequest
 	}
 	jsonData := []byte(getData)
 	// define the data
@@ -92,14 +92,14 @@ func QuestionThree() (*[]entity.BodyResponseForQuestionThree, error) {
 	var errUnMarshal = json.Unmarshal(jsonData, &data)
 	if errUnMarshal != nil {
 		fmt.Println(errUnMarshal.Error())
-		return &[]entity.BodyResponseForQuestionThree{}, errUnMarshal
+		return []*entity.BodyResponseForQuestionThree{}, errUnMarshal
 	}
 	// filter the data
-	var result []entity.BodyResponseForQuestionThree
+	var result []*entity.BodyResponseForQuestionThree
 
 	for _, val := range data {
 		for _, v := range val.Items {
-			result = append(result, entity.BodyResponseForQuestionThree{
+			result = append(result, &entity.BodyResponseForQuestionThree{
 				ID:          val.ID,
 				Category:    val.Category,
 				Title:       v.Title,
@@ -110,5 +110,5 @@ func QuestionThree() (*[]entity.BodyResponseForQuestionThree, error) {
 		}
 	}
 
-	return &result, nil
+	return result, nil
 }
